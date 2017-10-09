@@ -29,29 +29,43 @@ public class MarketLogin extends AppCompatActivity {
         setContentView(R.layout.activity_market_login);
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, ProfileActivity.class));
+            startActivity(new Intent(this, TestActivity.class));
             return;
         }
         username = (EditText) findViewById(R.id.username);
         pass = (EditText) findViewById(R.id.password);
         buttonLogin = (Button) findViewById(R.id.login);
-        buttonLogin.setOnClickListener(this);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (view == buttonLogin)
+                    userLogin();
+            }
+
+            ;
+        });
     }
+
     private void userLogin(){
-            final String username=username.getText().toString().trim();
+            final String uname=username.getText().toString().trim();
             final String password=pass.getText().toString().trim();
+
+
+
             StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_LOGIN, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
                     try {
                         JSONObject obj=new JSONObject(response);
-                        if(!obj.getBoolean("error")){
-                            SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getInt("id"),obj.getString("username"),obj.getString("email"));
 
-                            startActivity(new Intent(getApplicationContext(),ProfileActivity.class));
+
+                        if(obj.getBoolean("error")){
+                            SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getInt("id"),obj.getString("uname"),obj.getString("pass"));
+
+                            startActivity(new Intent(getApplicationContext(),TestActivity.class));
                             finish();
                         }else{
-                            Toast.makeText(getApplicationContext(),obj.getString("Invalid Login"), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Invalid", Toast.LENGTH_LONG).show();
                         }}
                     catch (JSONException e) {
                         e.printStackTrace();
@@ -67,7 +81,7 @@ public class MarketLogin extends AppCompatActivity {
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String,String> params= new HashMap<>();
-                    params.put("username",username);
+                    params.put("username",uname);
                     params.put("password",password);
                     return params;
                 }
@@ -75,7 +89,6 @@ public class MarketLogin extends AppCompatActivity {
             RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
         }
 
-        @Override
         public void onClick(View view) {
             if(view==buttonLogin)
                 userLogin();

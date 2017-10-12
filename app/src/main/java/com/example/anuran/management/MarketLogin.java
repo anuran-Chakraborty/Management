@@ -3,6 +3,7 @@ package com.example.anuran.management;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONException;
@@ -50,39 +52,46 @@ public class MarketLogin extends AppCompatActivity {
             final String uname=username.getText().toString().trim();
             final String password=pass.getText().toString().trim();
 
+            Map<String,String> params= new HashMap<>();
+            params.put("username",uname);
+                params.put("password",pass.getText().toString().trim());
 
-
-            StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_LOGIN, new Response.Listener<String>() {
+                StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_LOGIN, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
+                    Toast.makeText(getApplicationContext(),response, Toast.LENGTH_LONG).show();
                     try {
                         JSONObject obj=new JSONObject(response);
+                        //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();
 
-
-                        if(obj.getBoolean("error")){
-                            SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getInt("id"),obj.getString("uname"),obj.getString("pass"));
-
+                        if(!obj.getBoolean("error")){
+                            SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
+                            Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(getApplicationContext(),TestActivity.class));
                             finish();
-                        }else{
+                        }
+                        else{
                             Toast.makeText(getApplicationContext(),"Invalid", Toast.LENGTH_LONG).show();
                         }}
                     catch (JSONException e) {
                         e.printStackTrace();
+                        Toast.makeText(getApplicationContext(),"Exception", Toast.LENGTH_LONG).show();
                     }
 
                 }
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Server error",Toast.LENGTH_LONG).show();
+                    error.printStackTrace();
+                    Log.e("VOLLEY", error.toString());
                 }
             }){
                 @Override
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String,String> params= new HashMap<>();
                     params.put("username",uname);
-                    params.put("password",password);
+                    params.put("password",pass.getText().toString().trim());
                     return params;
                 }
             };

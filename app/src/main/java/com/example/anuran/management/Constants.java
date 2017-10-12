@@ -6,7 +6,7 @@ package com.example.anuran.management;
 
 
 public class Constants {
-        private static final String ROOT_URL = "http://206.221.178.10:2083/public-html/Android/v1/";
+        private static final String ROOT_URL = "http://supernovasoftsys.com/Android/v1/";
         public static final String URL_REGISTER = ROOT_URL + "registerUser.php";
         public static final String URL_LOGIN = ROOT_URL + "LoginUser.php";
     }

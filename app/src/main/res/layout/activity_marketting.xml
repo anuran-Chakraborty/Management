@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img">
+
+    <LinearLayout
+        android:id="@+id/activity_marketting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:orientation="vertical"
+        android:background="@drawable/timg"
+        tools:context="com.example.anuran.management.Marketting"
+        android:weightSum="1">
+
+        <Button
+            android:id="@+id/btn1"
+
+            android:text="Add leads"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+
+            android:layout_width="312dp"
+            android:layout_height="90dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5" />
+
+        <Button
+            android:id="@+id/btn2"
+
+            android:text="Add Existing leads to clients"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+
+            android:layout_width="323dp"
+            android:layout_height="89dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5" />
+
+        <Button
+            android:id="@+id/btn3"
+
+            android:text="See Clients"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+
+            android:layout_width="308dp"
+            android:layout_height="96dp"
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5" />
+    </LinearLayout>
+</FrameLayout>

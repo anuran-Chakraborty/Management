@@ -21,6 +21,7 @@ public class Login extends AppCompatActivity {
             Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
 
+
             TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
             tabLayout.addTab(tabLayout.newTab().setText("COMPANY"));
             tabLayout.addTab(tabLayout.newTab().setText("CLIENT"));

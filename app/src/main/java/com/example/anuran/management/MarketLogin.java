@@ -31,7 +31,7 @@ public class MarketLogin extends AppCompatActivity {
         setContentView(R.layout.activity_market_login);
         if (SharedPrefManager.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, TestActivity.class));
+            startActivity(new Intent(this, Marketting.class));
             return;
         }
         username = (EditText) findViewById(R.id.username);
@@ -67,7 +67,7 @@ public class MarketLogin extends AppCompatActivity {
                         if(!obj.getBoolean("error")){
                             SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
                             Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
-                            startActivity(new Intent(getApplicationContext(),TestActivity.class));
+                            startActivity(new Intent(getApplicationContext(),Marketting.class));
                             finish();
                         }
                         else{

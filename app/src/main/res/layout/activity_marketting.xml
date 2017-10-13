@@ -5,62 +5,81 @@
     android:layout_height="match_parent"
     android:background="@drawable/img">
 
-    <LinearLayout
-        android:id="@+id/activity_marketting"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:orientation="vertical"
-        android:background="@drawable/timg"
-        tools:context="com.example.anuran.management.Marketting"
-        android:weightSum="1">
+        android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/btn1"
+            android:id="@+id/button"
 
-            android:text="Add leads"
-            android:textColor="#FFFFFF"
-            android:textSize="30sp"
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+            android:layout_alignEnd="@+id/button2"
 
-            android:layout_width="312dp"
-            android:layout_height="90dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="59dp"
             android:background="@drawable/buttonshape"
             android:shadowColor="#A8A8A8"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="5" />
+            android:shadowRadius="5"
+            android:text="Add leads"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp" />
 
         <Button
-            android:id="@+id/btn2"
+            android:id="@+id/button2"
 
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+
+            android:background="@drawable/buttonshape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"
             android:text="Add Existing leads to clients"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
+            android:layout_marginTop="31dp"
+            android:layout_below="@+id/button"
+            android:layout_alignStart="@+id/logout" />
 
-            android:layout_width="323dp"
-            android:layout_height="89dp"
+        <Button
+            android:id="@+id/button3"
+
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+
             android:background="@drawable/buttonshape"
             android:shadowColor="#A8A8A8"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="5" />
-
-        <Button
-            android:id="@+id/btn3"
-
+            android:shadowRadius="5"
             android:text="See Clients"
             android:textColor="#FFFFFF"
             android:textSize="30sp"
+            android:layout_below="@+id/button2"
+            android:layout_alignStart="@+id/button2"
+            android:layout_marginTop="32dp" />
 
-            android:layout_width="308dp"
-            android:layout_height="96dp"
+        <Button
+            android:id="@+id/logout"
+
+            android:layout_width="286dp"
+            android:layout_height="82dp"
+
             android:background="@drawable/buttonshape"
             android:shadowColor="#A8A8A8"
             android:shadowDx="0"
             android:shadowDy="0"
-            android:shadowRadius="5" />
-    </LinearLayout>
+            android:shadowRadius="5"
+            android:text="Logout"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:layout_below="@+id/button3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="29dp" />
+    </RelativeLayout>
+
 </FrameLayout>

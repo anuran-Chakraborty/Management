@@ -59,7 +59,7 @@ public class MarketLogin extends AppCompatActivity {
                 StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_LOGIN, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    Toast.makeText(getApplicationContext(),response, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(),response, Toast.LENGTH_LONG).show();
                     try {
                         JSONObject obj=new JSONObject(response);
                         //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();

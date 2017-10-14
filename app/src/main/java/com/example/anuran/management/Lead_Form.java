@@ -60,52 +60,58 @@ public class Lead_Form extends AppCompatActivity implements View.OnClickListener
 
     }
 
-    private void registerUser(){
-        final String name=editTextname.getText().toString().trim();
-        final String dist=district.getText().toString().trim();
-        final String ename=editTextEname.getText().toString().trim();
-        final String mo1=mobi1.getText().toString().trim();
-        final String mo2=mobi2.getText().toString().trim();
-        final String mo3=mobi3.getText().toString().trim();
-        final String lan=land.getText().toString().trim();
-        final String c=city.getText().toString().trim();
-        progressDialog.setMessage("Registering user....");
-        progressDialog.show();
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_REGISTER, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                progressDialog.dismiss();
-                try {
-                    JSONObject jsonObject=new JSONObject(response);
-                    Toast.makeText(getApplicationContext(),jsonObject.getString("message"),Toast.LENGTH_LONG).show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+    private void registerUser() {
+        final String name = editTextname.getText().toString().trim();
+        final String dist = district.getText().toString().trim();
+        final String ename = editTextEname.getText().toString().trim();
+        final String mo1 = mobi1.getText().toString().trim();
+        final String mo2 = mobi2.getText().toString().trim();
+        final String mo3 = mobi3.getText().toString().trim();
+        final String lan = land.getText().toString().trim();
+        final String c = city.getText().toString().trim();
+        if (name.isEmpty() || ename.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Fields marked with * are mandatory", Toast.LENGTH_LONG).show();
+        }
+        else {
+            progressDialog.setMessage("Registering user....");
+            progressDialog.show();
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.URL_REGISTER, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    progressDialog.dismiss();
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        Toast.makeText(getApplicationContext(), jsonObject.getString("message"), Toast.LENGTH_LONG).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
                 }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    progressDialog.hide();
+                    Toast.makeText(getApplicationContext(), error.getMessage(), Toast.LENGTH_LONG).show();
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                progressDialog.hide();
-                Toast.makeText(getApplicationContext(),error.getMessage(),Toast.LENGTH_LONG).show();
-
-            }
-        }){
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String,String> params= new HashMap<>();
-                params.put("name",name);
-                params.put("esname",ename);
-                params.put("mo1",mo1);
-                params.put("mo2",mo2);
-                params.put("mo3",mo3);
-                params.put("lan",lan);
-                params.put("city",c);
-                params.put("dist",dist);
-                return params;
-            }
-        };
-        RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+                }
+            }) {
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> params = new HashMap<>();
+                    params.put("name", name);
+                    params.put("esname", ename);
+                    params.put("mo1", mo1);
+                    params.put("mo2", mo2);
+                    params.put("mo3", mo3);
+                    params.put("lan", lan);
+                    params.put("city", c);
+                    params.put("dist", dist);
+                    return params;
+                }
+            };
+            RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
+        }
     }
 
     @Override

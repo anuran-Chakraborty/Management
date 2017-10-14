@@ -28,7 +28,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MarketLogin" />
-        <activity android:name=".SeeClient"></activity>
+        <activity android:name=".SeeClient" />
+        <activity android:name=".ViewClient"></activity>
     </application>
 
 </manifest>

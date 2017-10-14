@@ -97,7 +97,7 @@ public void onClick(View view)
         StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_SEECLIENT, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(),"gsgf", Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"gsgf", Toast.LENGTH_LONG).show();
                 Log.e("log_tag", "fesfd");
                 try {
 
@@ -108,7 +108,7 @@ public void onClick(View view)
                         TableLayout tv = (TableLayout) findViewById(R.id.table);
                         tv.removeAllViewsInLayout();
                         int flag = 1;
-                        for (int i = -1; i < jArray.length(); i++) {
+                        for (int i = -1; i < jArray.length()-1; i++) {
                             TableRow tr = new TableRow(SeeClient.this);
                             tr.setLayoutParams(new LayoutParams(
                                     LayoutParams.FILL_PARENT,
@@ -143,13 +143,11 @@ public void onClick(View view)
                                 Log.i("log_tag", "id: " + json_data.getInt("id") + ", Username: " + json_data.getString("uname") + ", Name: " + json_data.getString("name"));
                                 TextView b = new TextView(SeeClient.this);
                                 String stime = String.valueOf(json_data.getInt("id"));
-
-                                Toast.makeText(getApplicationContext(),stime, Toast.LENGTH_LONG).show();
-
                                 b.setText(stime);
                                 b.setTextColor(Color.RED);
                                 b.setTextSize(15);
                                 tr.addView(b);
+
                                 TextView b1 = new TextView(SeeClient.this);
                                 b1.setPadding(10, 0, 0, 0);
                                 b1.setTextSize(15);
@@ -157,6 +155,7 @@ public void onClick(View view)
                                 b1.setText(stime1);
                                 b1.setTextColor(Color.BLACK);
                                 tr.addView(b1);
+
                                 TextView b2 = new TextView(SeeClient.this);
                                 b2.setPadding(10, 0, 0, 0);
                                 String stime2 = json_data.getString("name");
@@ -164,6 +163,24 @@ public void onClick(View view)
                                 b2.setTextColor(Color.BLACK);
                                 b2.setTextSize(15);
                                 tr.addView(b2);
+
+                                final Button details=new Button(SeeClient.this);
+                                details.setText("Details");
+                                details.setId(Integer.parseInt(stime));
+                                details.setTextSize(15);
+                                tr.addView(details);
+
+                                details.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent intent=new Intent(getApplicationContext(),ViewClient.class);
+                                        Bundle bundle = new Bundle();
+                                        bundle.putInt("id", details.getId());
+                                        intent.putExtras(bundle);
+                                        startActivity(intent);
+                                    }
+                                });
+
                                 tv.addView(tr);
                                 final View vline1 = new View(SeeClient.this);
                                 vline1.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, 1));

@@ -33,6 +33,9 @@
             android:layout_width="286dp"
             android:layout_height="82dp"
 
+            android:layout_alignStart="@+id/logout"
+            android:layout_below="@+id/button"
+            android:layout_marginTop="31dp"
             android:background="@drawable/buttonshape"
             android:shadowColor="#A8A8A8"
             android:shadowDx="0"
@@ -40,10 +43,7 @@
             android:shadowRadius="5"
             android:text="Add Existing leads to clients"
             android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:layout_marginTop="31dp"
-            android:layout_below="@+id/button"
-            android:layout_alignStart="@+id/logout" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/button3"
@@ -51,6 +51,9 @@
             android:layout_width="286dp"
             android:layout_height="82dp"
 
+            android:layout_alignStart="@+id/button2"
+            android:layout_below="@+id/button2"
+            android:layout_marginTop="32dp"
             android:background="@drawable/buttonshape"
             android:shadowColor="#A8A8A8"
             android:shadowDx="0"
@@ -58,10 +61,7 @@
             android:shadowRadius="5"
             android:text="See Clients"
             android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:layout_below="@+id/button2"
-            android:layout_alignStart="@+id/button2"
-            android:layout_marginTop="32dp" />
+            android:textSize="30sp" />
 
         <Button
             android:id="@+id/logout"
@@ -69,6 +69,9 @@
             android:layout_width="286dp"
             android:layout_height="82dp"
 
+            android:layout_below="@+id/button3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="29dp"
             android:background="@drawable/buttonshape"
             android:shadowColor="#A8A8A8"
             android:shadowDx="0"
@@ -76,10 +79,7 @@
             android:shadowRadius="5"
             android:text="Logout"
             android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:layout_below="@+id/button3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="29dp" />
+            android:textSize="30sp" />
     </RelativeLayout>
 
 </FrameLayout>

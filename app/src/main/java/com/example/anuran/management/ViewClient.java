@@ -30,7 +30,7 @@ public class ViewClient extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_client);
         TextView name=(TextView)findViewById(R.id.name);
-        TextView uname=(TextView)findViewById(R.id.uname);
+        //TextView uname=(TextView)findViewById(R.id.uname);
         TextView mo1=(TextView)findViewById(R.id.mo1);
         TextView ccid=(TextView)findViewById(R.id.ccid);
 

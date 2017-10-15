@@ -14,5 +14,8 @@ public class Constants {
         public static final String URL_SEECLIENT = ROOT_URL + "SeeClient.php";
         public static final String URL_VIEWCLIENT = ROOT_URL + "ViewClient.php";
 
+
+        public static final String URL_SEARCHLEAD = ROOT_URL + "ViewLead.php";
+
     }
 

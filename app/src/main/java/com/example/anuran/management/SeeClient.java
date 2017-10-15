@@ -141,6 +141,7 @@ public void onClick(View view)
                             else {
                                 JSONObject json_data = jArray.getJSONObject(i);
                               //  Log.i("log_tag", "id: " + json_data.getInt("id") + ", Username: " + json_data.getString("uname") + ", Name: " + json_data.getString("name"));
+
                                 TextView b = new TextView(SeeClient.this);
                                 String stime = String.valueOf(json_data.getInt("id"));
                                 b.setText(stime);

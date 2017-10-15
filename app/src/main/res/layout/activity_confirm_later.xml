@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/timg"
+        android:id="@+id/linearLayout"
+        android:weightSum="1">
+
+
+        <TextView
+            android:text="Installation and Site Details"
+            android:textSize="30dp"
+            android:textColor="#09d261"
+            android:layout_width="372dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" />
+        <EditText
+            android:layout_width="365dp"
+            android:layout_height="25dp"
+            android:inputType="textPersonName"
+            android:hint="Installed by:"
+            android:textColorHint="#aaaaaa"
+            android:ems="10"
+            android:id="@+id/editText1"
+            android:layout_weight="0.04" />
+        <EditText
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Installation Date:"
+        android:textColorHint="#aaaaaa"
+        android:ems="10"
+        android:id="@+id/editText2" />
+        <EditText
+            android:layout_width="365dp"
+            android:layout_height="41dp"
+            android:inputType="textPersonName"
+            android:hint="License Details:"
+            android:textColorHint="#aaaaaa"
+            android:ems="10"
+            android:id="@+id/editText3" />
+        <EditText
+            android:layout_width="365dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Quoted price(\u20B9):"
+            android:textColorHint="#aaaaaa"
+            android:ems="10"
+            android:id="@+id/editText4" />
+        <EditText
+            android:layout_width="365dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Final price(\u20B9):"
+            android:textColorHint="#aaaaaa"
+            android:ems="10"
+            android:id="@+id/editText5"
+            android:layout_weight="0.01" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Site Name*"
+            android:textColorHint="#f50c02"
+            android:ems="10"
+            android:id="@+id/editText6"
+            android:layout_weight="0.01" />
+        <ImageButton
+            android:id="@+id/searchImageButton"
+            android:layout_width="63dp"
+            android:layout_height="52dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/add7"
+            android:elevation="7dp" />
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>
+
+    <Button
+        android:id="@+id/btn4"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttonshape"
+
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        android:layout_marginTop="475dp"
+        android:layout_marginLeft="275dp"
+        android:text="Confirm client"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp" />
+</RelativeLayout>

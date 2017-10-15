@@ -29,6 +29,7 @@
         </activity>
 
 
+
         <activity android:name=".MarketLogin" />
 
         <activity android:name=".Confirm"></activity>
@@ -36,6 +37,9 @@
 
         <activity android:name=".SeeClient" />
         <activity android:name=".ViewClient"></activity>
+
+        <activity android:name=".SearchForClient" />
+        <activity android:name=".LeadDetails"></activity>
 
     </application>
 

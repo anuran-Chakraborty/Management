@@ -31,7 +31,7 @@ import java.util.Map;
 
 public class Lead_Form extends AppCompatActivity implements View.OnClickListener{
      EditText editTextname, district, editTextEname, mobi1, mobi2, mobi3, land, city;
-     Button buttonRegister;
+     Button buttonRegister,buttonConfirm;
      ProgressDialog progressDialog;
     //private TextView TextButtonLogin;
 
@@ -53,10 +53,12 @@ public class Lead_Form extends AppCompatActivity implements View.OnClickListener
         land = (EditText) findViewById(R.id.editText7);
         city = (EditText) findViewById(R.id.editText3);
         buttonRegister = (Button) findViewById(R.id.btn4);
+        buttonConfirm = (Button) findViewById(R.id.btn3);
         progressDialog = new ProgressDialog(this);
 
 
         buttonRegister.setOnClickListener(this);
+        buttonConfirm.setOnClickListener(this);
 
     }
 
@@ -74,6 +76,7 @@ public class Lead_Form extends AppCompatActivity implements View.OnClickListener
             Toast.makeText(getApplicationContext(),"Fields marked with * are mandatory", Toast.LENGTH_LONG).show();
         }
         else {
+           // progressDialog = new ProgressDialog(this);
             progressDialog.setMessage("Registering user....");
             progressDialog.show();
             StringRequest stringRequest = new StringRequest(Request.Method.POST, Constants.URL_REGISTER, new Response.Listener<String>() {
@@ -113,11 +116,40 @@ public class Lead_Form extends AppCompatActivity implements View.OnClickListener
             RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
         }
     }
+    private void confirmUser() {
+        final String name = editTextname.getText().toString().trim();
+        final String dist = district.getText().toString().trim();
+        final String ename = editTextEname.getText().toString().trim();
+        final String mo1 = mobi1.getText().toString().trim();
+        final String mo2 = mobi2.getText().toString().trim();
+        final String mo3 = mobi3.getText().toString().trim();
+        final String lan = land.getText().toString().trim();
+        final String c = city.getText().toString().trim();
+        if (name.isEmpty() || ename.isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Fields marked with * are mandatory", Toast.LENGTH_LONG).show();
+        }
+        else {
+            Intent intent = new Intent(Lead_Form.this, Confirm.class);
+            intent.putExtra("name", name);
+            intent.putExtra("dist", dist);
+            intent.putExtra("ename", ename);
+            intent.putExtra("mo1", mo1);
+            intent.putExtra("mo2", mo2);
+            intent.putExtra("mo3", mo3);
+            intent.putExtra("lan", lan);
+            intent.putExtra("c", c);
+            startActivity(intent);
 
-    @Override
+        }
+    }
+
+
+            @Override
     public void onClick(View view) {
         if(view==buttonRegister)
             registerUser();
+        if(view==buttonConfirm)
+            confirmUser();
 
 
 

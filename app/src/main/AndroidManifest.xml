@@ -27,10 +27,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".Lead_Form" />
         <activity android:name=".MarketLogin" />
         <activity android:name=".TestActivity" />
         <activity android:name=".Confirm"></activity>
+=======
+        <activity android:name=".MarketLogin" />
+        <activity android:name=".SeeClient" />
+        <activity android:name=".ViewClient"></activity>
+>>>>>>> 863ca7f5d5213a3b3aa5956d0e7453f1d8b33875
     </application>
 
 </manifest>

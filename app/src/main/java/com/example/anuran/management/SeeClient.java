@@ -140,7 +140,7 @@ public void onClick(View view)
                             }
                             else {
                                 JSONObject json_data = jArray.getJSONObject(i);
-                                Log.i("log_tag", "id: " + json_data.getInt("id") + ", Username: " + json_data.getString("uname") + ", Name: " + json_data.getString("name"));
+                                //Log.i("log_tag", "id: " + json_data.getInt("id") + ", Username: " + json_data.getString("uname") + ", Name: " + json_data.getString("name"));
                                 TextView b = new TextView(SeeClient.this);
                                 String stime = String.valueOf(json_data.getInt("id"));
                                 b.setText(stime);
@@ -148,13 +148,6 @@ public void onClick(View view)
                                 b.setTextSize(15);
                                 tr.addView(b);
 
-                                TextView b1 = new TextView(SeeClient.this);
-                                b1.setPadding(10, 0, 0, 0);
-                                b1.setTextSize(15);
-                                String stime1 = json_data.getString("uname");
-                                b1.setText(stime1);
-                                b1.setTextColor(Color.BLACK);
-                                tr.addView(b1);
 
                                 TextView b2 = new TextView(SeeClient.this);
                                 b2.setPadding(10, 0, 0, 0);

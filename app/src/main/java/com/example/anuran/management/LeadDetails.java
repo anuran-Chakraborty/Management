@@ -28,14 +28,14 @@ public class LeadDetails extends AppCompatActivity {
         lid.setText(Integer.toString(100000+bundle.getInt("id")));
         nam.setText(bundle.getString("name"));
 
-        Button conf=(Button)findViewById(R.id.confirm);
+        Button conf=(Button)findViewById(R.id.debit);
 
         conf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getApplicationContext(),Confirm.class);
                 Bundle bundle2 = new Bundle();
-            //    bundle2.putInt("id", leadid);
+                bundle2.putInt("id", leadid);
                 bundle2.putString("name",name);
                 bundle2.putString("ename",ename);
                 bundle2.putString("mo1",mo1);

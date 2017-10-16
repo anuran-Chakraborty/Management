@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login"></activity>
+        <activity android:name=".Login" />
         <activity android:name=".Marketting" />
         <activity android:name=".Lead_Form" />
         <activity android:name=".FinanceLogin" />
@@ -34,7 +34,9 @@
         <activity android:name=".ViewClient" />
         <activity android:name=".SearchForClient" />
         <activity android:name=".LeadDetails" />
-
+        <activity android:name=".Finance" />
+        <activity android:name=".CreditDebit" />
+        <activity android:name=".FinanceStatus"></activity>
     </application>
 
 </manifest>

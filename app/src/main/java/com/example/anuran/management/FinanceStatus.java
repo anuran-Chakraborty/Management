@@ -46,7 +46,7 @@ public class FinanceStatus extends AppCompatActivity {
         Button debit=(Button)findViewById(R.id.debit);
 
 
-        conf.setOnClickListener(new View.OnClickListener() {
+        debit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getApplicationContext(),Confirm.class);
@@ -67,7 +67,9 @@ public class FinanceStatus extends AppCompatActivity {
 
     }
     void insertIntoFinance(int price,int id){
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_LOGIN, new Response.Listener<String>() {
+        final int cid=id;
+        final int pr=price;
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_INSERTINFIN, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 //Toast.makeText(getApplicationContext(),response, Toast.LENGTH_LONG).show();
@@ -92,8 +94,8 @@ public class FinanceStatus extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> params= new HashMap<>();
-                params.put("username",uname);
-                params.put("password",pass.getText().toString().trim());
+                params.put("cid",Integer.toString(cid));
+                params.put("final",Integer.toString(pr));
                 return params;
             }
         };

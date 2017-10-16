@@ -27,7 +27,7 @@ public class Finance extends AppCompatActivity {
         debit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),CreditDebit.class);
+                Intent intent=new Intent(Finance.this,CreditDebit.class);
                 startActivity(intent);
             }
         });

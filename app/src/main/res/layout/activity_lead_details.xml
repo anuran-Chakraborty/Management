@@ -7,6 +7,14 @@
     tools:context="com.example.anuran.management.LeadDetails">
 
     <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lid"
+        android:layout_marginTop="14dp"
+        android:layout_toEndOf="@+id/final_price" />
+
+    <TextView
         android:id="@+id/lid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +24,7 @@
         android:layout_marginTop="70dp" />
 
     <TextView
-        android:id="@+id/final"
+        android:id="@+id/final_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/lid"
@@ -24,12 +32,13 @@
         android:layout_marginTop="45dp" />
 
     <Button
-        android:id="@+id/debit"
+        android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/final"
-        android:layout_below="@+id/final"
-        android:layout_marginTop="78dp"
-        android:text="CONFIRM" />
+        android:layout_marginTop="88dp"
+        android:text="CONFIRM"
+        android:layout_marginStart="39dp"
+        android:layout_below="@+id/final_price"
+        android:layout_toEndOf="@+id/final_price" />
 
 </RelativeLayout>

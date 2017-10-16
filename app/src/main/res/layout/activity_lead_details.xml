@@ -16,7 +16,7 @@
         android:layout_marginTop="70dp" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/final"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/lid"
@@ -24,11 +24,11 @@
         android:layout_marginTop="45dp" />
 
     <Button
-        android:id="@+id/confirm"
+        android:id="@+id/debit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/name"
-        android:layout_below="@+id/name"
+        android:layout_alignStart="@+id/final"
+        android:layout_below="@+id/final"
         android:layout_marginTop="78dp"
         android:text="CONFIRM" />
 

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.anuran.management.LeadDetails">
+
+    <TextView
+        android:id="@+id/lid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="70dp" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/lid"
+        android:layout_below="@+id/lid"
+        android:layout_marginTop="45dp" />
+
+    <TextView
+        android:id="@+id/rem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/price"
+        android:layout_marginTop="35dp"
+        android:textColor="@android:color/black"
+        android:layout_alignEnd="@+id/price" />
+
+    <Button
+        android:id="@+id/debit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Debit"
+        android:layout_alignBaseline="@+id/credit"
+        android:layout_alignBottom="@+id/credit"
+        android:layout_toStartOf="@+id/price" />
+
+    <Button
+        android:id="@+id/ledger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Ledger"
+        android:layout_alignBaseline="@+id/credit"
+        android:layout_alignBottom="@+id/credit"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp" />
+
+    <Button
+        android:id="@+id/credit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Credit"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

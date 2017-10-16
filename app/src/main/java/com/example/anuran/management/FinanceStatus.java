@@ -6,14 +6,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 
 import org.json.JSONException;
@@ -22,57 +21,60 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FinanceLogin extends AppCompatActivity {
-    private EditText username,pass;
-    private Button buttonLogin;
+public class FinanceStatus extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_market_login);
-        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
-            finish();
-            startActivity(new Intent(this, Finance.class));
-            return;
-        }
-        username = (EditText) findViewById(R.id.username);
-        pass = (EditText) findViewById(R.id.password);
-        buttonLogin = (Button) findViewById(R.id.login);
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_finance_status);
+
+        TextView lid=(TextView)findViewById(R.id.lid);
+        TextView price=(TextView)findViewById(R.id.price);
+        TextView rem=(TextView)findViewById(R.id.rem);
+        Bundle bundle = getIntent().getExtras();
+        final String name=bundle.getString("name");
+        final String mo1=bundle.getString("mo1");
+        final String mo2=bundle.getString("mo2");
+        final String mo3=bundle.getString("mo3");
+        final String ename=bundle.getString("esname");
+        final String land=bundle.getString("land");
+        final String city=bundle.getString("city");
+        final String district=bundle.getString("district");
+        final int leadid=bundle.getInt("id");
+        lid.setText("CLIENT ID: "+Integer.toString(100000+bundle.getInt("id")));
+
+        Button debit=(Button)findViewById(R.id.debit);
+
+
+        conf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (view == buttonLogin)
-                    userLogin();
+                Intent intent=new Intent(getApplicationContext(),Confirm.class);
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("id", leadid);
+                bundle2.putString("name",name);
+                bundle2.putString("ename",ename);
+                bundle2.putString("mo1",mo1);
+                bundle2.putString("mo2",mo2);
+                bundle2.putString("mo3",mo3);
+                bundle2.putString("lan",land);
+                bundle2.putString("c",city);
+                bundle2.putString("dist",district);
+                intent.putExtras(bundle2);
+                startActivity(intent);
             }
-
-            ;
         });
+
     }
-
-    private void userLogin(){
-        final String uname=username.getText().toString().trim();
-        final String password=pass.getText().toString().trim();
-
-        Map<String,String> params= new HashMap<>();
-        params.put("username",uname);
-        params.put("password",pass.getText().toString().trim());
-
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_LOGIN_FINANCE, new Response.Listener<String>() {
+    void insertIntoFinance(int price,int id){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_LOGIN, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 //Toast.makeText(getApplicationContext(),response, Toast.LENGTH_LONG).show();
                 try {
                     JSONObject obj=new JSONObject(response);
                     //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();
-
-                    if(!obj.getBoolean("error")){
-                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
-                        Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(),Finance.class));
-                        finish();
-                    }
-                    else{
-                        Toast.makeText(getApplicationContext(),"Invalid", Toast.LENGTH_LONG).show();
-                    }}
+                }
                 catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(),"Exception", Toast.LENGTH_LONG).show();
@@ -96,14 +98,6 @@ public class FinanceLogin extends AppCompatActivity {
             }
         };
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
-    }
-
-    public void onClick(View view) {
-        if(view==buttonLogin)
-            userLogin();
 
     }
-
-
 }
-

@@ -29,7 +29,7 @@ public class CreditDebit extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_for_client);
+        setContentView(R.layout.activity_credit_debit);
         final EditText lid = (EditText) (findViewById(R.id.leadid));
 
         final Button search = (Button) findViewById(R.id.search);

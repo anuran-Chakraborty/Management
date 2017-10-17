@@ -26,8 +26,6 @@ public class ViewClient extends AppCompatActivity {
         setContentView(R.layout.activity_view_client);
         TextView name=(TextView)findViewById(R.id.name);
         //TextView uname=(TextView)findViewById(R.id.uname);
-        TextView mo1=(TextView)findViewById(R.id.mo1);
-        TextView ccid=(TextView)findViewById(R.id.ccid);
 
 
         Bundle bundle = getIntent().getExtras();

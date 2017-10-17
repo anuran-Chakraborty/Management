@@ -28,7 +28,7 @@ public class LeadDetails extends AppCompatActivity {
         lid.setText(Integer.toString(100000+bundle.getInt("id")));
         nam.setText(bundle.getString("name"));
 
-        Button conf=(Button)findViewById(R.id.debit);
+        Button conf=(Button)findViewById(R.id.confirm);
 
         conf.setOnClickListener(new View.OnClickListener() {
             @Override

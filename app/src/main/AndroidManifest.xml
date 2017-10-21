@@ -36,7 +36,10 @@
         <activity android:name=".LeadDetails" />
         <activity android:name=".Finance" />
         <activity android:name=".CreditDebit" />
-        <activity android:name=".FinanceStatus"></activity>
+        <activity android:name=".FinanceStatus" />
+        <activity android:name=".pocLogin" />
+        <activity android:name=".clientLogin" />
+        <activity android:name=".Client"></activity>
     </application>
 
 </manifest>

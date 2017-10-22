@@ -25,7 +25,7 @@ public class TabPagerAdapter extends FragmentStatePagerAdapter {
                 Company tab1 = new Company();
                 return tab1;
             case 1:
-                Client tab2 = new Client();
+                ClientPOC tab2 = new ClientPOC();
                 return tab2;
             default:
                 return null;

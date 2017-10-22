@@ -22,18 +22,16 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FinanceLogin extends AppCompatActivity {
+public class clientLogin extends AppCompatActivity {
     private EditText username,pass;
     private Button buttonLogin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_finance_login);
-
-        if (PrefManager.getInstance(this).isLoggedIn()) {
-
+        setContentView(R.layout.activity_client);
+        if (SharedPrefManagerClient.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, Finance.class));
+            startActivity(new Intent(this, Client.class));
             return;
         }
         username = (EditText) findViewById(R.id.username);
@@ -56,9 +54,9 @@ public class FinanceLogin extends AppCompatActivity {
 
         Map<String,String> params= new HashMap<>();
         params.put("username",uname);
-        params.put("password",password);
+        params.put("password",pass.getText().toString().trim());
 
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_LOGIN_FINANCE, new Response.Listener<String>() {
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_LOGIN_CLIENT, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 //Toast.makeText(getApplicationContext(),response, Toast.LENGTH_LONG).show();
@@ -67,12 +65,9 @@ public class FinanceLogin extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();
 
                     if(!obj.getBoolean("error")){
-
-                        PrefManager.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
-
-
+                        SharedPrefManagerClient.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
                         Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(),Finance.class));
+                        startActivity(new Intent(getApplicationContext(),Client.class));
                         finish();
                     }
                     else{

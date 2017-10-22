@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,4 +8,39 @@
     tools:context="com.example.anuran.management.Client"
     tools:showIn="@layout/app_bar_client">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:fontFamily="serif"
+        android:text="Choose What You Want"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
+        android:typeface="serif" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="95dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/ViewSites"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Sites" />
+
+        <Button
+            android:id="@+id/issue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Raise An Issue" />
+
+    </LinearLayout>
+
+</RelativeLayout>

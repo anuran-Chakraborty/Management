@@ -36,7 +36,9 @@
         <activity android:name=".LeadDetails" />
         <activity android:name=".Finance" />
         <activity android:name=".CreditDebit" />
-        <activity android:name=".FinanceStatus"></activity>
+        <activity android:name=".FinanceStatus" />
+        <activity android:name=".AfterDebit" />
+        <activity android:name=".LedgerReport"></activity>
     </application>
 
 </manifest>

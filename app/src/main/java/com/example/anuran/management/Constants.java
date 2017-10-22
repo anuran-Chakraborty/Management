@@ -17,6 +17,7 @@ public class Constants {
 
         public static final String URL_SEARCHLEAD = ROOT_URL + "ViewLead.php";
         public static final String URL_SEARCHCLIENT = ROOT_URL + "SearchClient.php";
-
-    }
+        public static final String URL_DEBIT = ROOT_URL + "DebitUser.php";
+        public static final String URL_LEDGER = ROOT_URL + "Ledger.php";
+}
 

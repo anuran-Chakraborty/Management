@@ -54,7 +54,7 @@ public class MarketLogin extends AppCompatActivity {
 
             Map<String,String> params= new HashMap<>();
             params.put("username",uname);
-                params.put("password",pass.getText().toString().trim());
+                params.put("password",password);
 
                 StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_LOGIN, new Response.Listener<String>() {
                 @Override

@@ -29,7 +29,7 @@ public class FinanceLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_finance_login);
-        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+        if (SharedPrefManagerFin.getInstance(this).isLoggedIn()) {
             finish();
             startActivity(new Intent(this, Finance.class));
             return;
@@ -65,7 +65,7 @@ public class FinanceLogin extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();
 
                     if(!obj.getBoolean("error")){
-                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
+                        SharedPrefManagerFin.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
                         Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(getApplicationContext(),Finance.class));
                         finish();

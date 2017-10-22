@@ -29,7 +29,7 @@ public class clientLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
-        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+        if (SharedPrefManagerClient.getInstance(this).isLoggedIn()) {
             finish();
             startActivity(new Intent(this, Client.class));
             return;
@@ -65,9 +65,9 @@ public class clientLogin extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();
 
                     if(!obj.getBoolean("error")){
-                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
+                        SharedPrefManagerClient.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
                         Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(),Marketting.class));
+                        startActivity(new Intent(getApplicationContext(),Client.class));
                         finish();
                     }
                     else{

@@ -27,7 +27,8 @@
         android:layout_below="@+id/textView5"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="95dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <Button
             android:id="@+id/ViewSites"
@@ -46,6 +47,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ADD POC" />
+
+        <TextView
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView500"
+            android:layout_weight="0.14" />
+
     </LinearLayout>
 
 </RelativeLayout>

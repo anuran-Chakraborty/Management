@@ -1,6 +1,8 @@
 package com.example.anuran.management;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,13 +27,21 @@ import java.util.Map;
 public class clientLogin extends AppCompatActivity {
     private EditText username,pass;
     private Button buttonLogin;
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mypref";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_client);
         if (SharedPrefManagerClient.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, Client.class));
+            Intent intent = new Intent(clientLogin.this, Client.class);
+            sharedpreferences = getSharedPreferences(mypreference,
+                    Context.MODE_PRIVATE);
+            String x=sharedpreferences.getString("Name", "");
+            intent.putExtra("id",x);
+
+            startActivity(intent);
             return;
         }
         username = (EditText) findViewById(R.id.username);
@@ -65,9 +75,17 @@ public class clientLogin extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();
 
                     if(!obj.getBoolean("error")){
+                        sharedpreferences = getSharedPreferences(mypreference,
+                                Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedpreferences.edit();
+                        editor.putString("Name",uname);
+                        editor.commit();
+
                         SharedPrefManagerClient.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
                         Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(),Client.class));
+                        Intent intent = new Intent(clientLogin.this, Client.class);
+                        intent.putExtra("id",uname);
+                        startActivity(intent);
                         finish();
                     }
                     else{

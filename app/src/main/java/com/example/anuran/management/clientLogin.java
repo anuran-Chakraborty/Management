@@ -75,6 +75,7 @@ public class clientLogin extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();
 
                     if(!obj.getBoolean("error")){
+
                         sharedpreferences = getSharedPreferences(mypreference,
                                 Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedpreferences.edit();
@@ -85,6 +86,14 @@ public class clientLogin extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(clientLogin.this, Client.class);
                         intent.putExtra("id",uname);
+                        SharedPrefManagerClient.getInstance(clientLogin.this).userLogin(obj.getString("username"));
+                        Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(),SharedPrefManagerClient.getInstance(getApplicationContext()).getUsername(), Toast.LENGTH_LONG).show();
+                        //intent = new Intent(clientLogin.this, Client.class);
+                       // Bundle bundle2 = new Bundle();
+                       // bundle2.putString("cid", uname);
+                        //intent.putExtras(bundle2);
+
                         startActivity(intent);
                         finish();
                     }

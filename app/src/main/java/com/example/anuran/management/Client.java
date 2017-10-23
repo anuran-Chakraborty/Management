@@ -13,8 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import android.widget.TextView;
 import android.widget.Toast;
+
+import android.widget.Button;
+import android.widget.Toast;
+
+import java.util.HashMap;
+
 
 public class Client extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,6 +46,43 @@ public class Client extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Button viewSites=(Button)findViewById(R.id.ViewSites);
+        Button issue=(Button)findViewById(R.id.issue);
+        Button poc=(Button)findViewById(R.id.poc);
+        //Bundle bundle = getIntent().getExtras();
+        SharedPrefManagerClient pref=new SharedPrefManagerClient(getApplicationContext());
+        HashMap<String, String> user = pref.getUsername();
+        final String ccid = user.get(SharedPrefManagerClient.KEY_USER_USERNAME_CLIENT);
+        Toast.makeText(getApplicationContext(),ccid, Toast.LENGTH_LONG).show();
+        viewSites.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Client.this,ViewSites.class);
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("cid", ccid);
+                intent.putExtras(bundle2);
+                startActivity(intent);
+            }
+        });
+
+//        issue.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent=new Intent(Client.this,raiseIssue.class);
+//                startActivity(intent);
+//            }
+//        });
+
+
+        poc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Client.this,AddPoc.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

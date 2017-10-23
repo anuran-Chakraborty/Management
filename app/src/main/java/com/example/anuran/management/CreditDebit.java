@@ -25,19 +25,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CreditDebit extends AppCompatActivity {
+    public EditText lid;
+    public int llid;
+    public Button search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit_debit);
-        final EditText lid = (EditText) (findViewById(R.id.leadid));
+        lid = (EditText) (findViewById(R.id.clientid));
 
-        final Button search = (Button) findViewById(R.id.search);
+         search = (Button) findViewById(R.id.search);
         //if (lid.getText().toString().compareTo("") != 0) {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final int llid = Integer.parseInt(lid.getText().toString());
+                 llid = Integer.parseInt(lid.getText().toString());
                 Toast.makeText(getApplicationContext(), Integer.toString(llid), Toast.LENGTH_LONG).show();
 
                 if (view == search)
@@ -62,15 +65,15 @@ public class CreditDebit extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),Integer.toString(obj.getInt("status")), Toast.LENGTH_LONG).show();
                     Log.e("Tag",Integer.toString(obj.getInt("status")));
                     if(obj.getInt("status")==1) {
-                        Intent intent=new Intent(getApplicationContext(),LeadDetails.class);
+                        Intent intent=new Intent(getApplicationContext(),AfterDebit.class);
                         Bundle bundle = new Bundle();
                         bundle.putInt("id", Integer.parseInt(lid));
                         bundle.putString("name",obj.getString("name"));
-                        bundle.putString("esname",obj.getString("ename"));
-                        bundle.putString("mo1",obj.getString("mob1"));
-                        bundle.putString("mo2",obj.getString("mob2"));
-                        bundle.putString("mo3",obj.getString("mob3"));
-                        bundle.putString("land",obj.getString("land"));
+                        bundle.putString("esname",obj.getString("esname"));
+                        bundle.putString("mo1",obj.getString("mo1"));
+                        bundle.putString("mo2",obj.getString("mo2"));
+                        bundle.putString("mo3",obj.getString("mo3"));
+                        bundle.putString("land",obj.getString("landline"));
                         bundle.putString("city",obj.getString("city"));
                         bundle.putString("district",obj.getString("district"));
                         bundle.putString("final",obj.getString("final"));

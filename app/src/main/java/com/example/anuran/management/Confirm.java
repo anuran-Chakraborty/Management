@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -27,7 +28,9 @@ import com.android.volley.toolbox.StringRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class Confirm extends AppCompatActivity implements View.OnClickListener {
@@ -102,6 +105,7 @@ public class Confirm extends AppCompatActivity implements View.OnClickListener {
 
     }
     private void confirmme() {
+        final String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
         Bundle bundle = getIntent().getExtras();
 
         final String name = bundle.getString("name");
@@ -168,6 +172,7 @@ public class Confirm extends AppCompatActivity implements View.OnClickListener {
                 params.put("in_det",in_det);
                 params.put("q_pr",q_pr);
                 params.put("f_pr",f_pr);
+                params.put("date",currentDate);
                 return params;
             }
         };

@@ -18,7 +18,9 @@ public class Finance extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPrefManagerFin.getInstance(Finance.this).logout();
+
+                PrefManager.getInstance(Finance.this).logout();
+
                 startActivity(new Intent(Finance.this,FinanceLogin.class));
                 finish();
             }

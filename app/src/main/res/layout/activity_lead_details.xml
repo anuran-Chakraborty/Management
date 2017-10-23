@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/lid"
         android:layout_marginTop="14dp"
-        android:layout_toEndOf="@+id/final_price" />
+        android:layout_toEndOf="@+id/lid" />
 
     <TextView
         android:id="@+id/lid"

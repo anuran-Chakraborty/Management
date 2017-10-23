@@ -65,9 +65,14 @@ public class clientLogin extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();
 
                     if(!obj.getBoolean("error")){
-                        SharedPrefManagerClient.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
+                        SharedPrefManagerClient.getInstance(clientLogin.this).userLogin(obj.getString("username"));
                         Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(),Client.class));
+                        //Toast.makeText(getApplicationContext(),SharedPrefManagerClient.getInstance(getApplicationContext()).getUsername(), Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(clientLogin.this, Client.class);
+                        Bundle bundle2 = new Bundle();
+                        bundle2.putString("cid", uname);
+                        intent.putExtras(bundle2);
+                        startActivity(intent);
                         finish();
                     }
                     else{

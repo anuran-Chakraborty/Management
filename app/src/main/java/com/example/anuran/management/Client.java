@@ -36,9 +36,9 @@ public class Client extends AppCompatActivity
         setSupportActionBar(toolbar);
         Bundle bundle = getIntent().getExtras();
 
-        String name = bundle.getString("id");
+       final String name = bundle.getString("id");
         String old = bundle.getString("old");
-       //Toast.makeText(getApplicationContext(),old, Toast.LENGTH_LONG).show();
+       //Toast.makeText(getApplicationContext(),name, Toast.LENGTH_LONG).show();
         txt=(TextView)findViewById(R.id.textView500);
         txt.setText(name);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -58,24 +58,26 @@ public class Client extends AppCompatActivity
   //      HashMap<String, String> user = pref.getUsername();
      //   final String ccid = user.get(SharedPrefManagerClient.KEY_USER_USERNAME_CLIENT);
       //  Toast.makeText(getApplicationContext(),ccid, Toast.LENGTH_LONG).show();
-     /*   viewSites.setOnClickListener(new View.OnClickListener() {
+       viewSites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Client.this,ViewSites.class);
-                Bundle bundle2 = new Bundle();
-                bundle2.putString("cid", ccid);
-                intent.putExtras(bundle2);
+                //Bundle bundle2 = new Bundle();
+                //String name = bundle2.getString("id");
+                Toast.makeText(getApplicationContext(),name, Toast.LENGTH_LONG).show();
+                //bundle2.putString("cid", name);
+                intent.putExtra("cid",name);
                 startActivity(intent);
             }
-        });*/
+        });
 
-//        issue.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent=new Intent(Client.this,raiseIssue.class);
-//                startActivity(intent);
-//            }
-//        });
+    issue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Client.this,RaiseIsssue.class);
+                startActivity(intent);
+            }
+        });
 
 
         poc.setOnClickListener(new View.OnClickListener() {

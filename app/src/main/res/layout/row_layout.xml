@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:text="Site Id:"
         android:textColor="@android:color/black"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/site_name"
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="Name:"
         android:textColor="@android:color/black"
-        android:textSize="36sp" />
+        android:textSize="24sp" />
 
     <TextView
         android:id="@+id/cid"

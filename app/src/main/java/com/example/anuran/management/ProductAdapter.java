@@ -5,6 +5,8 @@ package com.example.anuran.management;
  */
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.List;
@@ -47,7 +50,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         viewItem.siteid.setText("Site id: "+productList.get(position).sid);
         viewItem.site_name.setText("Site name: "+productList.get(position).sitename);
         viewItem.clientid.setText("Client id: "+productList.get(position).client_id);
-        viewItem.issue.setId(Integer.parseInt(productList.get(position).client_id));
+        viewItem.issue.setId(Integer.parseInt(productList.get(position).sid));
+
     }
 
     @Override
@@ -55,7 +59,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         return productList.size();
     }
 
-    class ProductViewHolder extends RecyclerView.ViewHolder {
+    public static class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView siteid;
         TextView site_name;
@@ -69,6 +73,19 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             site_name = (TextView)itemView.findViewById(R.id.site_name);
             clientid = (TextView)itemView.findViewById(R.id.cid);
             issue = (Button)itemView.findViewById(R.id.issue);
+
+            issue.setOnClickListener(this);
+
         }
+        @Override
+        public void onClick(View v) {
+            Context con=v.getContext();
+            Intent intent = new Intent(con,RaiseIsssue.class);
+            Bundle bundle = new Bundle();
+            bundle.putInt("id", issue.getId());
+            intent.putExtras(bundle);
+            con.startActivity(intent);
+        }
+
     }
 }

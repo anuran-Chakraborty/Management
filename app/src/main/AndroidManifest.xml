@@ -40,22 +40,17 @@
         <activity android:name=".Finance" />
         <activity android:name=".CreditDebit" />
         <activity android:name=".FinanceStatus" />
-
         <activity android:name=".AfterDebit" />
-        <activity android:name=".LedgerReport"></activity>
-
+        <activity android:name=".LedgerReport" />
         <activity android:name=".pocLogin" />
         <activity android:name=".clientLogin" />
         <activity
             android:name=".Client"
             android:label="@string/title_activity_client"
             android:theme="@style/AppTheme" />
-
         <activity android:name=".AddPoc" />
-        <activity android:name=".ViewSites"></activity>
-
-
-
+        <activity android:name=".ViewSites" />
+        <activity android:name=".RaiseIsssue"></activity>
     </application>
 
 </manifest>

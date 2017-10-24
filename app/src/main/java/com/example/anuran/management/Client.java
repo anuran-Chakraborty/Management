@@ -60,7 +60,7 @@ public class Client extends AppCompatActivity
             public void onClick(View view) {
                 Intent intent=new Intent(Client.this,ViewSites.class);
                 Bundle bundle2 = new Bundle();
-                bundle2.putString("cid", ccid);
+                bundle2.putString("cid", name);
                 intent.putExtras(bundle2);
                 startActivity(intent);
             }

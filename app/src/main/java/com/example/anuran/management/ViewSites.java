@@ -59,7 +59,7 @@ public class ViewSites extends AppCompatActivity {
                     Log.e("log_tag", response);
                     if(jArray.length()>1) {
                         Log.e("log_tag", "fesfd3");
-                        for (int i = 1; i < jArray.length(); i++) {
+                        for (int i = 0; i < jArray.length()-1; i++) {
                             Log.e("log_tag", "fesfd6");
                             site =new SiteDesp();
                             JSONObject json_data = jArray.getJSONObject(i);

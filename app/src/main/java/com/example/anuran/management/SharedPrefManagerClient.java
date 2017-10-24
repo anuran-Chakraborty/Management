@@ -28,7 +28,7 @@ public class SharedPrefManagerClient {
     private static Editor editor;
     public SharedPrefManagerClient(Context context) {
         mCtx = context;
-        sharedPreferences=mCtx.getSharedPreferences(SHARED_PREF_NAME_CLIENT,MODE_WORLD_READABLE);
+        sharedPreferences=mCtx.getSharedPreferences(SHARED_PREF_NAME_CLIENT,Context.MODE_PRIVATE);
         editor=sharedPreferences.edit();
         //editor.putInt(KEY_USER_ID_CLIENT,id);
         //editor.putString(KEY_USER_PASS_CLIENT,pass);
@@ -69,7 +69,7 @@ public class SharedPrefManagerClient {
     public HashMap<String, String> getUsername()
     {
         HashMap<String, String> user = new HashMap<String, String>();
-        sharedPreferences=mCtx.getSharedPreferences(SHARED_PREF_NAME_CLIENT,MODE_WORLD_READABLE);
+        sharedPreferences=mCtx.getSharedPreferences(SHARED_PREF_NAME_CLIENT,Context.MODE_PRIVATE);
         user.put(KEY_USER_USERNAME_CLIENT, sharedPreferences.getString(KEY_USER_USERNAME_CLIENT, null));
         return user;
 

@@ -39,7 +39,11 @@ public class clientLogin extends AppCompatActivity {
             sharedpreferences = getSharedPreferences(mypreference,
                     Context.MODE_PRIVATE);
             String x=sharedpreferences.getString("Name", "");
+            String y=sharedpreferences.getString("old","");
+           // Toast.makeText(getApplicationContext(),SharedPrefManagerClient.KEY_USER_USERNAME_CLIENT, Toast.LENGTH_LONG).show();
+
             intent.putExtra("id",x);
+            intent.putExtra("old",y);
 
             startActivity(intent);
             return;
@@ -80,12 +84,14 @@ public class clientLogin extends AppCompatActivity {
                                 Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putString("Name",uname);
+                        editor.putString("old",password);
                         editor.commit();
 
-                        SharedPrefManagerClient.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
-                        Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
+                        //SharedPrefManagerClient.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
+                        //Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(clientLogin.this, Client.class);
                         intent.putExtra("id",uname);
+                        intent.putExtra("old",password);
                         SharedPrefManagerClient.getInstance(clientLogin.this).userLogin(obj.getString("username"));
                         Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
                         //Toast.makeText(getApplicationContext(),SharedPrefManagerClient.getInstance(getApplicationContext()).getUsername(), Toast.LENGTH_LONG).show();

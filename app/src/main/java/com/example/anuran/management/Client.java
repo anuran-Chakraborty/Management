@@ -26,6 +26,8 @@ import java.util.HashMap;
 public class Client extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     TextView txt;
+   // public String name="";
+   // public String old="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +36,9 @@ public class Client extends AppCompatActivity
         setSupportActionBar(toolbar);
         Bundle bundle = getIntent().getExtras();
 
-        final String name = bundle.getString("id");
-        Toast.makeText(getApplicationContext(),name, Toast.LENGTH_LONG).show();
+        String name = bundle.getString("id");
+        String old = bundle.getString("old");
+       //Toast.makeText(getApplicationContext(),old, Toast.LENGTH_LONG).show();
         txt=(TextView)findViewById(R.id.textView500);
         txt.setText(name);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -51,11 +54,11 @@ public class Client extends AppCompatActivity
         Button issue=(Button)findViewById(R.id.issue);
         Button poc=(Button)findViewById(R.id.poc);
         //Bundle bundle = getIntent().getExtras();
-        SharedPrefManagerClient pref=new SharedPrefManagerClient(getApplicationContext());
-        HashMap<String, String> user = pref.getUsername();
-        final String ccid = user.get(SharedPrefManagerClient.KEY_USER_USERNAME_CLIENT);
-        Toast.makeText(getApplicationContext(),ccid, Toast.LENGTH_LONG).show();
-        viewSites.setOnClickListener(new View.OnClickListener() {
+//        SharedPrefManagerClient pref=new SharedPrefManagerClient(getApplicationContext());
+  //      HashMap<String, String> user = pref.getUsername();
+     //   final String ccid = user.get(SharedPrefManagerClient.KEY_USER_USERNAME_CLIENT);
+      //  Toast.makeText(getApplicationContext(),ccid, Toast.LENGTH_LONG).show();
+     /*   viewSites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(Client.this,ViewSites.class);
@@ -64,7 +67,7 @@ public class Client extends AppCompatActivity
                 intent.putExtras(bundle2);
                 startActivity(intent);
             }
-        });
+        });*/
 
 //        issue.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -124,8 +127,19 @@ public class Client extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_edit_profile) {
-            // Handle the camera action
+
+
+
         } else if (id == R.id.nav_change) {
+            Intent intent=new Intent(Client.this,ChangePassword.class);
+            Bundle bundle = getIntent().getExtras();
+
+            String name = bundle.getString("id");
+            String old = bundle.getString("old");
+           // Toast.makeText(getApplicationContext(),old, Toast.LENGTH_LONG).show();
+            intent.putExtra("id",name);
+            intent.putExtra("old",old);
+            startActivity(intent);
 
         } else if (id == R.id.nav_logout){
             SharedPrefManagerClient.getInstance(Client.this).logout();

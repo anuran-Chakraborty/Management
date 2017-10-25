@@ -21,8 +21,8 @@ public class SharedPrefManagerClient {
     private static SharedPrefManagerClient mInstance;
     private SharedPreferences sharedPreferences;
     private static Context mCtx;
-    private final static String SHARED_PREF_NAME_CLIENT="mysharedpref14";
-    static String KEY_USER_USERNAME_CLIENT="mysharedpref17";
+    public static String SHARED_PREF_NAME_CLIENT="mysharedpref14";
+    public static String KEY_USER_USERNAME_CLIENT="mysharedpref17";
     private static String KEY_USER_PASS_CLIENT="userpasswordcl";
     private static String KEY_USER_ID_CLIENT="userid3";
     private static Editor editor;
@@ -54,9 +54,9 @@ public class SharedPrefManagerClient {
     }
     public boolean isLoggedIn(){
         sharedPreferences=mCtx.getSharedPreferences(SHARED_PREF_NAME_CLIENT,Context.MODE_PRIVATE);
-        if(sharedPreferences.getString(KEY_USER_USERNAME_CLIENT,null)!=null){
-            return true;}
-        return false;
+        if(sharedPreferences.getString(KEY_USER_USERNAME_CLIENT,null)==null){
+            return false;}
+        return true;
     }
     public boolean logout()
     {

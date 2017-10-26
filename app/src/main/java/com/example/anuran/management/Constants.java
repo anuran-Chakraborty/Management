@@ -16,7 +16,10 @@ public class Constants {
         public static final String URL_VIEWCLIENT = ROOT_URL + "ViewClient.php";
         public static final String URL_VIEW_SITES = ROOT_URL + "ViewSites.php";
         public static final String URL_INSERTINFIN= ROOT_URL + "InsertTrans.php";
-
+        public static final int REQCODE = 100;
+        public static final String imageList = "imageList";
+        public static final String imageName = "name";
+        public static final String URL_IMAGE = ROOT_URL + "img_upload_to_server.php";
         public static final String URL_SEARCHLEAD = ROOT_URL + "ViewLead.php";
         public static final String URL_SEARCHCLIENT = ROOT_URL + "SearchClient.php";
         public static final String URL_DEBIT = ROOT_URL + "DebitUser.php";

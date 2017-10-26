@@ -129,8 +129,15 @@ public class Client extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_edit_profile) {
+            Intent intent=new Intent(Client.this,EditProfile.class);
+            Bundle bundle = getIntent().getExtras();
 
-
+            String name = bundle.getString("id");
+          //  String old = bundle.getString("old");
+        //    Toast.makeText(getApplicationContext(),name, Toast.LENGTH_LONG).show();
+         intent.putExtra("id",name);
+            //intent.putExtra("old",old);
+            startActivity(intent);
 
         } else if (id == R.id.nav_change) {
             Intent intent=new Intent(Client.this,ChangePassword.class);

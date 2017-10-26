@@ -50,10 +50,10 @@
             android:theme="@style/AppTheme" />
         <activity android:name=".AddPoc" />
         <activity android:name=".ViewSites" />
-
-        <activity android:name=".ChangePassword"></activity>
-      <activity android:name=".RaiseIsssue"></activity>
-
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".RaiseIsssue" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".ConfirmProfile"></activity>
     </application>
 
 </manifest>

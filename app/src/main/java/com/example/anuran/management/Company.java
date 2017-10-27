@@ -29,6 +29,7 @@ public class Company extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_company, container, false);
         Button market = (Button) rootView.findViewById(R.id.marketing);
         Button finance= (Button) rootView.findViewById(R.id.Finance);
+        Button support= (Button) rootView.findViewById(R.id.support);
         market.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
@@ -42,6 +43,14 @@ public class Company extends Fragment {
             @Override
             public void onClick(View arg0) {
                 Intent i = new Intent(getActivity().getApplicationContext(),FinanceLogin.class);
+                startActivity(i);
+                //getActivity().setContentView(R.layout.activity_finance_login);
+            }
+        });
+        support.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                Intent i = new Intent(getActivity().getApplicationContext(),SupportLogin.class);
                 startActivity(i);
                 //getActivity().setContentView(R.layout.activity_finance_login);
             }

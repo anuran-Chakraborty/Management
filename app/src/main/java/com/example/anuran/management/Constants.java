@@ -27,5 +27,8 @@ public class Constants {
         public static final String URL_DEBIT = ROOT_URL + "DebitUser.php";
         public static final String URL_LEDGER = ROOT_URL + "Ledger.php";
         public static final String URL_CHANGE = ROOT_URL + "Change.php";
+        public static final String URL_EDIT = ROOT_URL + "EditProfile.php";
+        public static final String URL_CONFIRMEDIT = ROOT_URL + "ConfirmEdit.php";
+        public static final String URL_CONFIRM2 = "http://supernovasoftsys.com/Android/v1/ConfirmUser2.php";
 }
 

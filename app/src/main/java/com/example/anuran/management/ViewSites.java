@@ -1,5 +1,6 @@
 package com.example.anuran.management;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,7 @@ import java.util.Map;
 
 public class ViewSites extends AppCompatActivity {
     RecyclerView sites;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +46,15 @@ public class ViewSites extends AppCompatActivity {
         sites=(RecyclerView)findViewById(R.id.rv);
         sites.setHasFixedSize(true);
         sites.setLayoutManager(new LinearLayoutManager(this));
+        progressDialog = new ProgressDialog(ViewSites.this);
+        progressDialog.setMessage("Processing....");
+        progressDialog.show();
+
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_VIEW_SITES, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                progressDialog.dismiss();
                 //Toast.makeText(getApplicationContext(),"gsgf", Toast.LENGTH_LONG).show();
                 SiteDesp site;
                 List<SiteDesp> siteList=new ArrayList<SiteDesp>();

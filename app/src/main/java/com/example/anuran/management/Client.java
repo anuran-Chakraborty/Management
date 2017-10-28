@@ -74,7 +74,8 @@ public class Client extends AppCompatActivity
     issue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Client.this,RaiseIsssue.class);
+                Intent intent=new Intent(Client.this,Issue.class);
+                intent.putExtra("id",name);
                 startActivity(intent);
             }
         });

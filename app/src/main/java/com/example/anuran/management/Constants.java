@@ -28,5 +28,7 @@ public class Constants {
         public static final String URL_EDIT = ROOT_URL + "EditProfile.php";
         public static final String URL_CONFIRMEDIT = ROOT_URL + "ConfirmEdit.php";
         public static final String URL_CONFIRM2 = "http://supernovasoftsys.com/Android/v1/ConfirmUser2.php";
+        public static final String URL_CONFIRM3 = "http://supernovasoftsys.com/Android/v1/ConfirmUser3.php";
+
 }
 

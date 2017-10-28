@@ -29,9 +29,9 @@ public class OsupportLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_osupport_login);
-        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+        if (SharedPrefManagerOos.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, HeadSupport.class));
+            startActivity(new Intent(this, OrdinarySupport.class));
             return;
         }
         username = (EditText) findViewById(R.id.username);

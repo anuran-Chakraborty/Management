@@ -22,35 +22,73 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login" />
-        <activity android:name=".Marketting" />
-        <activity android:name=".Lead_Form" />
-        <activity android:name=".FinanceLogin" />
-        <activity android:name=".TestActivity" />
-        <activity android:name=".Splash">
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Marketting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Lead_Form"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FinanceLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TestActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Splash"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MarketLogin" />
-        <activity android:name=".Confirm" />
-        <activity android:name=".SeeClient" />
-        <activity android:name=".ViewClient" />
-        <activity android:name=".SearchForClient" />
-        <activity android:name=".LeadDetails" />
-        <activity android:name=".Finance" />
-        <activity android:name=".CreditDebit" />
-        <activity android:name=".FinanceStatus" />
-        <activity android:name=".AfterDebit" />
-        <activity android:name=".LedgerReport" />
-        <activity android:name=".pocLogin" />
+        <activity
+            android:name=".MarketLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Confirm"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SeeClient"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewClient"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SearchForClient"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LeadDetails"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Finance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".CreditDebit"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FinanceStatus"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AfterDebit"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LedgerReport"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".pocLogin"
+            android:screenOrientation="portrait" />
         <activity android:name=".clientLogin" />
         <activity
             android:name=".Client"
             android:label="@string/title_activity_client"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+<<<<<<< HEAD
         <activity android:name=".AddPoc" />
         <activity android:name=".ViewSites" />
         <activity android:name=".ChangePassword" />
@@ -59,6 +97,35 @@
         <activity android:name=".ConfirmProfile" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Issue"></activity>
+=======
+
+        <activity
+            android:name=".AddPoc"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewSites"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChangePassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RaiseIsssue"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SupportLogin"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HeadLogin"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".OsupportLogin"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HeadSupport"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".OrdinarySupport"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".EditProfile"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ConfirmProfile"
+            android:screenOrientation="portrait"></activity>
+>>>>>>> 16b7fe8b2cd3493b99d8a4d35c435c178e3cd633
     </application>
 
 </manifest>

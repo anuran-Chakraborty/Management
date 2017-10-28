@@ -25,7 +25,7 @@ import java.util.Map;
 public class Issue extends AppCompatActivity implements View.OnClickListener {
 
     EditText sub,des;
-    public String su,ds;
+    //public String su,ds;
     ImageButton attach;
     Button confirm;
     public String cid;
@@ -42,6 +42,7 @@ public class Issue extends AppCompatActivity implements View.OnClickListener {
         attach.setOnClickListener(this);
         Bundle bundle=getIntent().getExtras();
         cid=bundle.getString("id");
+
     }
     @Override
     public void onClick(View view) {
@@ -62,6 +63,10 @@ public class Issue extends AppCompatActivity implements View.OnClickListener {
     }
     private void attachme()
     {
+  final String su=sub.getText().toString().trim();
+  final String ds=des.getText().toString().trim();
+
+        Toast.makeText(getApplicationContext(),su, Toast.LENGTH_LONG).show();
         Intent intent=new Intent(Issue.this,MainActivity.class);
         intent.putExtra("id",cid);
         intent.putExtra("sub",su);
@@ -72,8 +77,10 @@ public class Issue extends AppCompatActivity implements View.OnClickListener {
     }
     private void confirmme()
     {
-        su=sub.getText().toString().trim();
-        ds=des.getText().toString().trim();
+        //su=sub.getText().toString().trim();
+        //ds=des.getText().toString().trim();
+        final String su=sub.getText().toString().trim();
+        final String ds=des.getText().toString().trim();
         if(su.isEmpty())
         {
             Toast.makeText(getApplicationContext(),"Subject cannot be left blank...", Toast.LENGTH_LONG).show();

@@ -88,18 +88,14 @@
             android:label="@string/title_activity_client"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-<<<<<<< HEAD
-        <activity android:name=".AddPoc" />
-        <activity android:name=".ViewSites" />
-        <activity android:name=".ChangePassword" />
-        <activity android:name=".RaiseIsssue" />
-        <activity android:name=".EditProfile" />
-        <activity android:name=".ConfirmProfile" />
+
+
+
+
+
         <activity android:name=".MainActivity" />
         <activity android:name=".Issue"></activity>
-=======
-
-        <activity
+         <activity
             android:name=".AddPoc"
             android:screenOrientation="portrait" />
         <activity
@@ -125,7 +121,7 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ConfirmProfile"
             android:screenOrientation="portrait"></activity>
->>>>>>> 16b7fe8b2cd3493b99d8a4d35c435c178e3cd633
+
     </application>
 
 </manifest>

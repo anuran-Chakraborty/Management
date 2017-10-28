@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         sub=bundle.getString("sub");
         des=bundle.getString("des");
         ccid=bundle.getString("id");
-
+        Toast.makeText(getApplicationContext(),sub, Toast.LENGTH_LONG).show();
 
         mController = (ImageView) findViewById(R.id.controller);
         mVideo = (VideoView) findViewById(R.id.video);
@@ -126,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
         //Set upload button listener
         mUpload.setOnClickListener(new View.OnClickListener() {
@@ -181,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
     //Respon dari upload button ketika diklik, untuk melakukan upload file ke server
     void uploadFile() {
         mRequest.start();
+
         mMultiPartRequest = new MultiPartRequest(new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {

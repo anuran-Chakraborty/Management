@@ -40,7 +40,7 @@
             android:id="@+id/issue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Raise An Issue" />
+            android:text="Issue History" />
 
         <Button
             android:id="@+id/poc"

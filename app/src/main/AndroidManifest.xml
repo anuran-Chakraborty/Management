@@ -91,6 +91,9 @@
             android:name=".AddPoc"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".IssueHistory"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".ViewSites"
             android:screenOrientation="portrait" />
         <activity

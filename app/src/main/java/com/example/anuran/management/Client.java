@@ -36,7 +36,7 @@ public class Client extends AppCompatActivity
         setSupportActionBar(toolbar);
         Bundle bundle = getIntent().getExtras();
 
-       final String name = bundle.getString("id");
+        final String name = bundle.getString("id");
         String old = bundle.getString("old");
        //Toast.makeText(getApplicationContext(),name, Toast.LENGTH_LONG).show();
         txt=(TextView)findViewById(R.id.textView500);

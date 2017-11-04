@@ -90,7 +90,7 @@ public class ProductAdapterIssueHistory extends RecyclerView.Adapter<ProductAdap
         @Override
         public void onClick(View v) {
             Context con=v.getContext();
-            Intent intent = new Intent(con,IssueDetails.class);
+            Intent intent = new Intent(con,Remarks.class);
             Bundle bundle = new Bundle();
             bundle.putInt("id", issue.getId());
             intent.putExtras(bundle);

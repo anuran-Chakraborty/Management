@@ -55,7 +55,7 @@ import Template.Template;
 public class MainActivity extends AppCompatActivity {
 
     private static String[] CHOOSE_FILE = {"Photo", "Video", "File manager"};
-    public String sub,des,ccid;
+    public String sub,des,ccid,ccid1;
     private Button mAdd, mUpload;
     private ImageView mImage, mImage2, mImage3, mImage4, mImage5, mImage6, mImage7, mImage8, mImage9, mController;
     private VideoView mVideo;
@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         sub=bundle.getString("sub");
         des=bundle.getString("des");
         ccid=bundle.getString("id");
+        ccid1=bundle.getString("sid");
         Toast.makeText(getApplicationContext(),sub, Toast.LENGTH_LONG).show();
 
         mController = (ImageView) findViewById(R.id.controller);
@@ -200,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                 setResponse(response, null);
 
             }
-        }, mFile, mFile.size(),sub,des,ccid);
+        }, mFile, mFile.size(),sub,des,ccid,ccid1);
         //Set tag, diperlukan ketika akan menggagalkan request/cancenl request
         mMultiPartRequest.setTag("MultiRequest");
         //Set retry policy, untuk mengatur socket time out, retries. Bisa disetting lewat template

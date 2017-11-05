@@ -1,7 +1,9 @@
 package com.example.anuran.management;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,8 +30,10 @@ public class Issue extends AppCompatActivity implements View.OnClickListener {
     //public String su,ds;
     ImageButton attach;
     Button confirm;
-    public String cid;
+    public String cid,cid1;
     ProgressDialog progressDialog;
+    SharedPreferences sharedpreferences;
+    public static final String mypreference = "mypref";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +45,12 @@ public class Issue extends AppCompatActivity implements View.OnClickListener {
         confirm.setOnClickListener(this);
         attach.setOnClickListener(this);
         Bundle bundle=getIntent().getExtras();
-        cid=bundle.getString("id");
+        sharedpreferences = getSharedPreferences(mypreference,
+                Context.MODE_PRIVATE);
+         cid=sharedpreferences.getString("Name", "");
+        //cid=bundle.getString("id");
+        cid1=Integer.toString(bundle.getInt("id1"));
+        //Toast.makeText(getApplicationContext(),cid, Toast.LENGTH_LONG).show();
 
     }
     @Override
@@ -63,17 +72,24 @@ public class Issue extends AppCompatActivity implements View.OnClickListener {
     }
     private void attachme()
     {
+
   final String su=sub.getText().toString().trim();
   final String ds=des.getText().toString().trim();
 
-        Toast.makeText(getApplicationContext(),su, Toast.LENGTH_LONG).show();
-        Intent intent=new Intent(Issue.this,MainActivity.class);
-        intent.putExtra("id",cid);
-        intent.putExtra("sub",su);
-        intent.putExtra("des",ds);
-        finish();
-        startActivity(intent);
-
+        if(su.isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Subject cannot be left blank...", Toast.LENGTH_LONG).show();
+        }
+      else {
+            Toast.makeText(getApplicationContext(), su, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(Issue.this, MainActivity.class);
+            intent.putExtra("id", cid);
+            intent.putExtra("sub", su);
+            intent.putExtra("des", ds);
+            intent.putExtra("sid",cid1);
+            finish();
+            startActivity(intent);
+        }
     }
     private void confirmme()
     {
@@ -125,6 +141,7 @@ public class Issue extends AppCompatActivity implements View.OnClickListener {
                    params.put("id",cid);
                     params.put("sub", su);
                     params.put("des", ds);
+                    params.put("sid",cid1);
                     return params;
                 }
             };

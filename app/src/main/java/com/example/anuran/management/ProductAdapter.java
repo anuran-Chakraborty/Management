@@ -6,6 +6,7 @@ package com.example.anuran.management;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,6 +29,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
     private Context mCtx;
     private List<SiteDesp> productList;
+    SharedPreferences sharedpreferences;
 
     public ProductAdapter(Context mCtx, List<SiteDesp> productList) {
         this.mCtx = mCtx;
@@ -80,9 +82,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
         @Override
         public void onClick(View v) {
             Context con=v.getContext();
-            Intent intent = new Intent(con,RaiseIsssue.class);
+
+            Intent intent = new Intent(con,Issue.class);
             Bundle bundle = new Bundle();
-            bundle.putInt("id", issue.getId());
+            bundle.putInt("id1", issue.getId());
+        //     Toast.makeText(getApplicationContext(),Integer.toString(issue.getId()), Toast.LENGTH_LONG).show();
             intent.putExtras(bundle);
             con.startActivity(intent);
         }

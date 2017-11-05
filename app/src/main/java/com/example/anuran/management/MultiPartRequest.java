@@ -26,14 +26,14 @@ public class MultiPartRequest extends Request<String> {
     private Response.Listener<String> mListener;
     private HttpEntity mHttpEntity;
 
-    public MultiPartRequest(Response.ErrorListener errorListener,Response.Listener listener, ArrayList<File> file, int numberOfFiles,String sub, String des, String id) {
+    public MultiPartRequest(Response.ErrorListener errorListener,Response.Listener listener, ArrayList<File> file, int numberOfFiles,String sub, String des, String id,String sid) {
         super(Method.POST, EndPointAPI.PATH, errorListener);
         mListener = listener;
-        mHttpEntity = buildMultipartEntity(file, numberOfFiles,sub,des,id);
+        mHttpEntity = buildMultipartEntity(file, numberOfFiles,sub,des,id,sid);
 
     }
 
-    private HttpEntity buildMultipartEntity(ArrayList<File> file, int numberOffiles,String sub,String des,String cid) {
+    private HttpEntity buildMultipartEntity(ArrayList<File> file, int numberOffiles,String sub,String des,String cid,String ssid) {
         MultipartEntityBuilder builder = MultipartEntityBuilder.create();
         for(int i=0; i < file.size();i++){
             FileBody fileBody = new FileBody(file.get(i));
@@ -45,6 +45,7 @@ public class MultiPartRequest extends Request<String> {
         builder.addTextBody("sub",sub);
         builder.addTextBody("des",des);
         builder.addTextBody("id",cid);
+        builder.addTextBody("sid",ssid);
         return builder.build();
     }
 

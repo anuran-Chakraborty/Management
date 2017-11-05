@@ -14,6 +14,9 @@ public class Constants {
         public static final String URL_CONFIRM = "http://supernovasoftsys.com/Android/v1/ConfirmUser.php";
         public static final String URL_SEECLIENT = ROOT_URL + "SeeClient.php";
         public static final String URL_VIEWCLIENT = ROOT_URL + "ViewClient.php";
+        public static final String URL_VIEWISSUES = ROOT_URL + "ViewIssue.php";
+        public static final String URL_ISSUE_HISTORY = ROOT_URL + "IssueHistory.php";
+        public static final String URL_REMARKS = ROOT_URL + "Remarks.php";
         public static final String URL_VIEW_SITES = ROOT_URL + "ViewSites.php";
         public static final String URL_INSERTINFIN= ROOT_URL + "InsertTrans.php";
         public static final String URL_LOGIN_HEADLOGIN= ROOT_URL + "LoginHos.php";

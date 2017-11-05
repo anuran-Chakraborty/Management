@@ -29,7 +29,7 @@ public class HeadLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_head_login);
-        if (SharedPrefManager.getInstance(this).isLoggedIn()) {
+        if (SharedPrefManagerHoS.getInstance(this).isLoggedIn()) {
             finish();
             startActivity(new Intent(this, HeadSupport.class));
             return;
@@ -65,9 +65,9 @@ public class HeadLogin extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();
 
                     if(!obj.getBoolean("error")){
-                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
+                        SharedPrefManagerHoS.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
                         Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(getApplicationContext(),Marketting.class));
+                        startActivity(new Intent(getApplicationContext(),HeadSupport.class));
                         finish();
                     }
                     else{

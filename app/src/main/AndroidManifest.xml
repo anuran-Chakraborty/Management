@@ -6,13 +6,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
-
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -88,16 +85,22 @@
             android:label="@string/title_activity_client"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> ebc1bab6c00b591c3b33698d60d7c50000cf3077
         <activity android:name=".MainActivity" />
-        <activity android:name=".Issue"></activity>
-         <activity
+        <activity android:name=".Issue" />
+        <activity
             android:name=".AddPoc"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".IssueHistory"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ViewSites"
@@ -108,6 +111,7 @@
         <activity
             android:name=".RaiseIsssue"
             android:screenOrientation="portrait" />
+<<<<<<< HEAD
 
         <activity android:name=".EditProfile" />
         <activity android:name=".ConfirmProfile" />
@@ -125,6 +129,25 @@
         <activity android:name=".OrdinarySupport"
             android:screenOrientation="portrait"></activity>
 
+=======
+        <activity
+            android:name=".SupportLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HeadLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OsupportLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HeadSupport"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".OrdinarySupport"
+            android:screenOrientation="portrait" />
+        <activity android:name=".IssueDetails" />
+        <activity android:name=".Remarks"></activity>
+>>>>>>> ebc1bab6c00b591c3b33698d60d7c50000cf3077
     </application>
 
 </manifest>

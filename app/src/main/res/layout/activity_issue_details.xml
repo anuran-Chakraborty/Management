@@ -1,9 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.anuran.management.IssueDetails">
+    tools:context="com.example.anuran.management.IssueDetails"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+
+
+    <TextView
+        android:id="@+id/iid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Issue id:"
+        android:textColor="@color/black"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/sid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Site Id:"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/cid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Client id:"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/sub"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subject:"
+        android:textColor="@color/background_color"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/idet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Issue Details:"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:layout_alignParentTop="true" />
+
+    <Button
+        android:id="@+id/resolve"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resolve this myself" />
+
+    <Button
+        android:id="@+id/give"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Assign to someone else" />
+</LinearLayout>

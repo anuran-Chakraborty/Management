@@ -49,10 +49,10 @@ public class Remarks extends AppCompatActivity {
     }
     public void insert(String id,String remarks){
         final String iid=id;
-        Toast.makeText(getApplicationContext(),iid,Toast.LENGTH_LONG).show();
+    //    Toast.makeText(getApplicationContext(),iid,Toast.LENGTH_LONG).show();
 
         final String irem=remarks;
-        Toast.makeText(getApplicationContext(),irem,Toast.LENGTH_LONG).show();
+      //  Toast.makeText(getApplicationContext(),irem,Toast.LENGTH_LONG).show();
         progressDialog = new ProgressDialog(Remarks.this);
         progressDialog.setMessage("Processing....");
         progressDialog.show();
@@ -64,6 +64,7 @@ public class Remarks extends AppCompatActivity {
                 Log.e("log_tag", "fesfd");
                 try {
                     JSONObject obj=new JSONObject(response);
+                    //Toast.makeText(getApplicationContext(),obj.getString("success"),Toast.LENGTH_LONG).show();
 
                     if(obj.getString("success").compareTo("Success")==0){
                         Toast.makeText(getApplicationContext(),"Remarks successfully sent.....Thank you for your feedback", Toast.LENGTH_LONG).show();

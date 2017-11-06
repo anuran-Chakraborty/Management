@@ -1,19 +1,20 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.anuran.management.Company">
+    tools:context="com.example.anuran.management.Company"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
-        android:text="ENTER CLIENT ID"
+        android:text="           ENTER CLIENT ID"
         android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -21,7 +22,7 @@
 
     <EditText
         android:id="@+id/cid"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/search"
         android:layout_alignEnd="@+id/textView"
@@ -33,7 +34,7 @@
 
     <Button
         android:id="@+id/search"
-        android:layout_width="wrap_content"
+        android:layout_width="400dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -41,7 +42,7 @@
 
     <Button
         android:text="SEE LEDGER REPORT"
-        android:layout_width="wrap_content"
+        android:layout_width="432dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
         android:id="@+id/ledger"
@@ -49,4 +50,4 @@
         android:layout_alignStart="@+id/search" />
 
 
-</RelativeLayout>
+</LinearLayout>

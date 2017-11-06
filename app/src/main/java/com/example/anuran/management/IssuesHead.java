@@ -51,7 +51,7 @@ public class IssuesHead extends Fragment {
         StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_VIEWISSUES, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                //progressDialog.dismiss();
+                progressDialog.dismiss();
                 //Toast.makeText(getApplicationContext(),"gsgf", Toast.LENGTH_LONG).show();
                 IssueDesp issue;
                 List<IssueDesp> issueList= new ArrayList<>();

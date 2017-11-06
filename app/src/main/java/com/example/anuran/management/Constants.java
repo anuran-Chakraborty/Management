@@ -26,6 +26,8 @@ public class Constants {
         public static final String URL_LOGIN_SUPPORTLOGIN= ROOT_URL + "LoginOos.php";
         public static final String URL_ISSUE_RESOLVE= ROOT_URL + "IssueResolve.php";
         public static final int REQCODE = 100;
+        public static final String URL_AMC_NEW= ROOT_URL + "NewAmc.php";
+        public static final String URL_AMC_CLIENT= ROOT_URL + "SeeAmc.php";
         public static final String imageList = "imageList";
         public static final String imageName = "name";
         public static final String URL_IMAGE = ROOT_URL + "img_upload_to_server.php";

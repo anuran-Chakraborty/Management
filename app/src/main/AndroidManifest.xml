@@ -31,6 +31,7 @@
         <activity
             android:name=".FinanceLogin"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".TestActivity"
             android:screenOrientation="portrait" />
@@ -121,7 +122,12 @@
             android:screenOrientation="portrait" />
         <activity android:name=".IssueDetails" />
         <activity android:name=".Remarks" />
+
         <activity android:name=".SupportList"></activity>
+
+        <activity android:name=".ViewAmc" />
+
+        <activity android:name=".RenewAmc"></activity>
     </application>
 
 </manifest>

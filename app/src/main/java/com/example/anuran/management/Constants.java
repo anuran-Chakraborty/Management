@@ -19,6 +19,8 @@ public class Constants {
         public static final String URL_REMARKS = ROOT_URL + "Remarks.php";
         public static final String URL_ISSUE_DET = ROOT_URL + "Issuedetails.php";
         public static final String URL_VIEW_SITES = ROOT_URL + "ViewSites.php";
+        public static final String URL_VIEW_SUPPORT = ROOT_URL + "ViewSupport.php";
+        public static final String URL_ISSUE_ASSIGN = ROOT_URL + "IssueAssign.php";
         public static final String URL_INSERTINFIN= ROOT_URL + "InsertTrans.php";
         public static final String URL_LOGIN_HEADLOGIN= ROOT_URL + "LoginHos.php";
         public static final String URL_LOGIN_SUPPORTLOGIN= ROOT_URL + "LoginOos.php";

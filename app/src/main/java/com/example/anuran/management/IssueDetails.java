@@ -1,5 +1,7 @@
 package com.example.anuran.management;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -30,7 +32,7 @@ import java.util.Map;
 
 public class IssueDetails extends AppCompatActivity {
 
-    public String iid;
+    public static String iid;
 
     List<DataAdapter> ListOfdataAdapter;
 
@@ -77,7 +79,8 @@ public class IssueDetails extends AppCompatActivity {
 
         recyclerView.setLayoutManager(layoutManagerOfrecyclerView);
 
-
+        final Button resolve=(Button)findViewById(R.id.resolve);
+        final Button give=(Button)findViewById(R.id.give);
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, Constants.URL_ISSUE_DET, new Response.Listener<String>() {
@@ -91,12 +94,22 @@ public class IssueDetails extends AppCompatActivity {
                     TextView cid=(TextView)findViewById(R.id.cid);
                     TextView sub=(TextView)findViewById(R.id.sub);
                     TextView idet=(TextView)findViewById(R.id.idet);
+                    TextView stat=(TextView)findViewById(R.id.status);
                     iid.setText("Issue id: "+obj.getString("id"));
                     sid.setText("Site id: "+obj.getString("siteid"));
                     cid.setText("Client id: "+obj.getString("clientid"));
                     sub.setText("Subject: "+obj.getString("sub"));
                     idet.setText("Description: "+obj.getString("description"));
-
+                    if(obj.getString("decline").compareTo("1")==0){
+                        give.setVisibility(View.INVISIBLE);
+                        stat.setText("Status : Assigned to support");
+                        stat.setTextColor(Color.GREEN);
+                    }
+                    else{
+                        give.setVisibility(View.VISIBLE);
+                        stat.setText("Status : Not Assigned or resolved");
+                        stat.setTextColor(Color.RED);
+                    }
 
                 }
                 catch (JSONException e) {
@@ -187,8 +200,7 @@ public class IssueDetails extends AppCompatActivity {
         };
         RequestHandler.getInstance(this).addToRequestQueue(stringRequest);
 
-        Button resolve=(Button)findViewById(R.id.resolve);
-        Button give=(Button)findViewById(R.id.give);
+
 
         resolve.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -198,7 +210,16 @@ public class IssueDetails extends AppCompatActivity {
         });
 
 
-
+        give.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(IssueDetails.this,SupportList.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("id", iid);
+                intent.putExtras(bundle);
+                startActivity(intent);
+            }
+        });
 
 
 

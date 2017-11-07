@@ -28,7 +28,7 @@ import java.util.Map;
 
 
 public class Amc extends Fragment implements View.OnClickListener {
-    Button confirm,ledger;
+    Button confirm,ledger,log;
     EditText clientid;
     public int flag;
     public Amc() {
@@ -43,13 +43,14 @@ public class Amc extends Fragment implements View.OnClickListener {
         View rootView = inflater.inflate(R.layout.fragment_amc, container, false);
         confirm = (Button) rootView.findViewById(R.id.search);
         ledger = (Button) rootView.findViewById(R.id.ledger);
+        log=(Button)rootView.findViewById(R.id.logout);
       //  addamc = (Button) rootView.findViewById(R.id.addamc);
         clientid=(EditText)rootView.findViewById(R.id.cid);
 
 
         confirm.setOnClickListener(this);
         ledger.setOnClickListener(this);
-
+        log.setOnClickListener(this);
 
         return rootView;
     }
@@ -64,6 +65,12 @@ public class Amc extends Fragment implements View.OnClickListener {
 
             seeamc();
 
+        }
+
+        if(view==log) {
+            SharedPrefManagerOos.getInstance(getActivity()).logout();
+            startActivity(new Intent(getActivity(), OsupportLogin.class));
+            getActivity().finish();
         }
                 }
     private void seeamc()

@@ -38,7 +38,7 @@ public class Client extends AppCompatActivity
 
         final String name = bundle.getString("id");
         String old = bundle.getString("old");
-       //Toast.makeText(getApplicationContext(),name, Toast.LENGTH_LONG).show();
+       Toast.makeText(getApplicationContext(),name, Toast.LENGTH_LONG).show();
         txt=(TextView)findViewById(R.id.textView500);
         txt.setText(name);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -1,6 +1,8 @@
 package com.example.anuran.management;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,13 +27,26 @@ import java.util.Map;
 public class OsupportLogin extends AppCompatActivity {
     private EditText username,pass;
     private Button buttonLogin;
+    SharedPreferences sharedpreferences2;
+    public static final String mypreference2 = "mysharedpref16";
+    public static String idofsupport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_osupport_login);
         if (SharedPrefManagerOos.getInstance(this).isLoggedIn()) {
             finish();
-            startActivity(new Intent(this, OrdinarySupport.class));
+            Intent intent = new Intent(OsupportLogin.this, OrdinarySupport.class);
+            sharedpreferences2 = getSharedPreferences(mypreference2,
+                    Context.MODE_PRIVATE);
+            idofsupport=sharedpreferences2.getString("supportid", "");
+            String y=sharedpreferences2.getString("old","");
+            // Toast.makeText(getApplicationContext(),SharedPrefManagerClient.KEY_USER_USERNAME_CLIENT, Toast.LENGTH_LONG).show();
+
+            //intent.putExtra("id",x);
+            //intent.putExtra("old",y);
+
+            startActivity(intent);
             return;
         }
         username = (EditText) findViewById(R.id.username);
@@ -65,8 +80,15 @@ public class OsupportLogin extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(),obj.getString("uname"), Toast.LENGTH_LONG).show();
 
                     if(!obj.getBoolean("error")){
-                        SharedPrefManager.getInstance(getApplicationContext()).userLogin(obj.getString("username"));
-                        Toast.makeText(getApplicationContext(),"Success", Toast.LENGTH_LONG).show();
+                        sharedpreferences2 = getSharedPreferences(mypreference2,
+                                Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedpreferences2.edit();
+                        editor.putString("supportid",uname);
+                        editor.putString("old",password);
+                        editor.commit();
+                        idofsupport=obj.getString("username");
+                        SharedPrefManagerOos.getInstance(OsupportLogin.this).userLogin(obj.getString("username"));
+                        Toast.makeText(getApplicationContext(),"Success"+idofsupport, Toast.LENGTH_LONG).show();
                         startActivity(new Intent(getApplicationContext(),OrdinarySupport.class));
                         finish();
                     }

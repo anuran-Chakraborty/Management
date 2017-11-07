@@ -6,22 +6,27 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 public class OrdinarySupport extends AppCompatActivity {
 
+    //public static String idofsupport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ordinary_support);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
+//        Bundle bundle = getIntent().getExtras();
+//
+//        final String name = bundle.getString("id");
+//        String old = bundle.getString("old");
+        //idofsupport=name;
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("AMC"));
         tabLayout.addTab(tabLayout.newTab().setText("ISSUES"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
+        Toast.makeText(getApplicationContext(),OsupportLogin.idofsupport, Toast.LENGTH_LONG).show();
         final ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
         final PagerAdapter adapter = new TabPagerAdapterSupport(getSupportFragmentManager(), tabLayout.getTabCount());
         viewPager.setAdapter(adapter);

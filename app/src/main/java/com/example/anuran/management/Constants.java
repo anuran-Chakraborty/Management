@@ -24,6 +24,7 @@ public class Constants {
         public static final String URL_INSERTINFIN= ROOT_URL + "InsertTrans.php";
         public static final String URL_LOGIN_HEADLOGIN= ROOT_URL + "LoginHos.php";
         public static final String URL_LOGIN_SUPPORTLOGIN= ROOT_URL + "LoginOos.php";
+        public static final String URL_VIEWISSUES_SUPPORT= ROOT_URL+  "ViewIssueSupport.php";
         public static final String URL_ISSUE_RESOLVE= ROOT_URL + "IssueResolve.php";
         public static final int REQCODE = 100;
         public static final String URL_AMC_NEW= ROOT_URL + "NewAmc.php";
